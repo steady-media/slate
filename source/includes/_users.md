@@ -1,10 +1,10 @@
 # Users
 ## Current basic data
 ```http
-GET /users/me HTTP/1.1
+GET /api/v1/users/me HTTP/1.1
 Accept: application/vnd.api+json
 Authorization: Bearer OAUTH2_ACCESS_TOKEN
-Host: steadyhq.com/api/v1
+Host: steadyhq.com
 ```
 ```http
 HTTP/1.1 200 OK
@@ -24,7 +24,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
 }
 ```
 
-`GET /users/me`
+`GET https://steadyhq.com/api/v1/users/me`
 
 Returns the current basic user data for the user associated with the *access token*.
 

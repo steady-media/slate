@@ -71,9 +71,9 @@ state | the same **state** value you passed in before
 
 ### Step 4: Your application requests the access token
 ```http
-POST /oauth/token HTTP/1.1
+POST /api/v1/oauth/token HTTP/1.1
 Accept: application/json
-Host: steadyhq.com/api/v1
+Host: steadyhq.com
 ```
 ```javascript
 {
@@ -139,9 +139,9 @@ info | the **basic user information**
 
 ## Refresh the access token
 ```http
-POST /oauth/token HTTP/1.1
+POST /api/v1/oauth/token HTTP/1.1
 Accept: application/json
-Host: steadyhq.com/api/v1
+Host: steadyhq.com
 ```
 ```javascript
 {

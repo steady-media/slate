@@ -1,10 +1,10 @@
 # Subscriptions
 ## Current status
 ```http
-GET /subscriptions/me HTTP/1.1
+GET /api/v1/subscriptions/me HTTP/1.1
 Accept: application/vnd.api+json
 Authorization: Bearer OAUTH2_ACCESS_TOKEN
-Host: steadyhq.com/api/v1
+Host: steadyhq.com
 ```
 ```http
 HTTP/1.1 200 OK
@@ -34,7 +34,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
 }
 ```
 
-`GET /subscriptions/me`
+`GET https://steadyhq.com/api/v1/subscriptions/me`
 
 Returns the current subscription status for the user associated with the *access token*.
 

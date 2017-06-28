@@ -3,10 +3,10 @@
 > To authorize, add "Authorization" as request header field.
 
 ```http
-GET /users/me HTTP/1.1
+GET /api/v1/users/me HTTP/1.1
 Accept: application/vnd.api+json
 Authorization: Bearer OAUTH2_ACCESS_TOKEN
-Host: steadyhq.com/api/v1
+Host: steadyhq.com
 ```
 > Make sure to replace `OAUTH2_ACCESS_TOKEN` with the *access token* of the user you make the request for.
 
