@@ -116,6 +116,7 @@ Content-Type: application/json; charset=utf-8
   "expires_in": 604800,
   "scope": "read",
   "info": {
+    "id": "5e7607b0-1458-41e4-b6bc-e6301c39e7da",
     "first-name": "Jane",
     "last-name": "Doe",
     "email": "jane.doe@example.com"
