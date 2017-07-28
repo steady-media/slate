@@ -38,6 +38,9 @@ Content-Type: application/vnd.api+json; charset=utf-8
 
 Returns the current subscription status for the user associated with the *access token*.
 
+### Needed scope of access_token:
+read
+
 ### Subscription attributes
 Attribute | Description
 --------- | -----------
