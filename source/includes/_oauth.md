@@ -96,7 +96,7 @@ Parameter | Value
 client_id | the **CLIENT_ID** can be found in the Steady Backend
 client_secret | the **CLIENT_SECRET** can be found in the Steady Backend. Optional.
 grant_type | **authorization_code** specifies that this request is within an Authorization Code grant flow
-code | the **AUTHORIZATION_CODE** received in Step 3
+code | the **AUTHORIZATION_CODE** received in [Step 3](#step-3-your-application-receives-an-authorization-code)
 redirect_uri | the **REDIRECT_URI** you have set in the Steady Backend
 
 <aside class="notice">
@@ -125,7 +125,7 @@ Content-Type: application/json; charset=utf-8
   }
 }
 ```
-If the authorization request from Step 4 is valid, Steady will send a response containing the *access token*.
+If the authorization request from [Step 4](#step-4-your-application-requests-the-access-token) is valid, Steady will send a response containing the *access token*.
 
 Parameter | Value
 -------------- | --------------
@@ -156,7 +156,7 @@ Host: steadyhq.com
 }
 ```
 
-If a *refresh token* was issued, it may be used to request new access tokens if the original token has expired. Steady only issues a refresh token if you send the *client secret* along in Step 4.
+If a *refresh token* was issued, it may be used to request new access tokens if the original token has expired. Steady only issues a refresh token if you send the *client secret* along in [Step 4](#step-4-your-application-requests-the-access-token).
 Make your request to refresh the *access token* to this endpoint:
 
 `https://steadyhq.com/api/v1/oauth/token`
@@ -166,9 +166,23 @@ Parameter | Value
 client_id | the **CLIENT_ID** can be found in the Steady Backend
 client_secret | the **CLIENT_SECRET** can be found in the Steady Backend.
 grant_type | **refresh_token**
-refresh_token | the **REFRESH_TOKEN** received in Step 5
+refresh_token | the **REFRESH_TOKEN** received in [Step 5](#step-5-your-application-receives-the-access-token)
 redirect_uri | the **REDIRECT_URI** you have set in the Steady Backend
 
 <aside class="notice">
-  If no <i>refresh token</i> was issued or it has also expired go back to Step 1. If the user is logged in at Steady and there is still a valid authorization from the user, Step 2 will be omitted and you'll receive a new <i>authorization code</i> (Step 3), otherwise the flow continues at Step 2.
+  If no <i>refresh token</i> was issued or it has also expired go back to <a href="#step-1-insert-an-authorization-code-link">Step 1</a>. If the user is logged in at Steady and there is still a valid authorization from the user, <a href="#step-2-user-authorizes-your-application-at-steady">Step 2</a> will be omitted and you'll receive a new <i>authorization code</i> (<a href="#step-3-your-application-receives-an-authorization-code">Step 3</a>), otherwise the flow continues at <a href="#step-2-user-authorizes-your-application-at-steady">Step 2</a>.
 </aside>
+
+## Link to your campaign page
+```text
+  https://steadyhq.com/your_campaign_page?
+    oauth_client_id=CLIENT_ID
+```
+
+If you use the following link to send your users to your Steady campaign page - and they complete the subscription - the user is authorized automatically and the flow will continue with [Step 3](#step-3-your-application-receives-an-authorization-code).
+
+`https://steadyhq.com/your_campaign_page?oauth_client_id=CLIENT_ID`
+
+Parameter | Value
+-------------- | --------------
+oauth_client_id | the **CLIENT_ID** can be found in the Steady Backend
