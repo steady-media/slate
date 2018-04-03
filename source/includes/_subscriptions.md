@@ -19,6 +19,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
     "attributes": {
       "state": "not_renewing",
       "cancelled-at": "2017-05-01T22:00:14.000000Z",
+      "trial-ends-at": "2017-05-08T10:55:31.000000Z",
       "expires-at": "2017-05-18T10:55:31.000000Z",
       "monthly-amount-in-cents": 1000,
       "period": "monthly"
@@ -54,6 +55,7 @@ Attribute | Description
 state | in_trial / active / not_renewing
 cancelled-at | datetime of the cancellation / null
 expires-at | datetime when the subscription will expire / null
+trial-ends-at | datetime when the subscription's trial period will end / null
 monthly-amount-in-cents | amount the user pays per month in cents
 period | monthly / annual — the period of the contract of the user
 
