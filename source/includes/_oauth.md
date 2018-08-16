@@ -186,3 +186,182 @@ If you use the following link to send your users to your Steady campaign page - 
 Parameter | Value
 -------------- | --------------
 oauth_client_id | the **CLIENT_ID** can be found in the Steady Backend
+
+## Authorization
+
+> To authorize, add "Authorization" as request header field.
+
+```http
+GET /api/v1/users/me HTTP/1.1
+Accept: application/vnd.api+json
+Authorization: Bearer OAUTH2_ACCESS_TOKEN
+Host: steadyhq.com
+```
+> Make sure to replace `OAUTH2_ACCESS_TOKEN` with the *access token* of the user you make the request for.
+
+Steady relies on [bearer tokens](https://tools.ietf.org/html/rfc6750) in the "Authorization" request header field.
+
+`Authorization: Bearer OAUTH2_ACCESS_TOKEN`
+
+<aside class="notice">
+  You must replace <code>OAUTH2_ACCESS_TOKEN</code> with the <i>access token</i> of the user you make the request for.
+</aside>
+
+
+## Current user
+```http
+GET /api/v1/users/me HTTP/1.1
+Accept: application/vnd.api+json
+Authorization: Bearer OAUTH2_ACCESS_TOKEN
+Host: steadyhq.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json; charset=utf-8
+```
+```javascript
+{
+  "data": {
+    "type": "user",
+    "id": "5e7607b0-1458-41e4-b6bc-e6301c39e7da",
+    "attributes": {
+      "first-name": "Jane",
+      "last-name": "Doe",
+      "email": "jane.doe@example.com",
+      "has-password": true
+    }
+  }
+}
+```
+
+`GET https://steadyhq.com/api/v1/users/me`
+
+Returns the current basic user data for the user associated with the *access token*.
+
+### Needed scope of access_token:
+read
+
+### Attributes
+Attribute | Description
+--------- | -----------
+first-name | first name of the user
+last-name | last name of the user
+email | email address of the user
+has-password | boolean if the user has set a password for her account
+
+
+## Current subscription
+```http
+GET /api/v1/subscriptions/me HTTP/1.1
+Accept: application/vnd.api+json
+Authorization: Bearer OAUTH2_ACCESS_TOKEN
+Host: steadyhq.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json; charset=utf-8
+```
+```javascript
+// when the user has a current subscription
+{
+  "data": {
+    "type": "subscription",
+    "id": "8ef509c7-b8fe-4a56-a366-fadf030bfc64",
+    "attributes": {
+      "state": "not_renewing",
+      "period": "annual"
+      "currency": "EUR",
+      "monthly-amount-in-cents": 1000,
+      "inserted-at": "2017-04-08T10:55:31.000000Z",
+      "updated-at": "2017-05-01T10:55:31.000000Z",
+      "cancelled-at": "2017-05-01T22:00:14.000000Z",
+      "trial-ends-at": "2017-05-08T10:55:31.000000Z",
+      "active-from": null,
+      "expires-at": "2017-05-18T10:55:31.000000Z",
+      "rss-feed-url": "https://steadyhq.com/rss/your-publication?auth=6d58b391-156a-4e88-93ff-3fe773f4394d"
+    },
+    "relationships": {
+      "plan": {
+        "data": {
+          "type": "plan",
+          "id": "00083e16-668b-4bc4-8669-927daa408a1c"
+        }
+      },
+      "subscriber": {
+        "data": {
+          "type": "user",
+          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
+        }
+      }
+    }
+  },
+  "included": [{
+    "type": "plan",
+    "id": "b9d7574f-5246-4c94-ade5-1d4e9b169afc",
+    "attributes": {
+      "state" : "published",
+      "name": "Gold plan",
+      "monthly-amount-in-cents" : 2000,
+      "annual-amount-in-cents" : 12000,
+      "currency" : "EUR",
+      "benefits" : "foo bar baz",
+      "ask-for-shiping-address" : false,
+      "goal-enabled" : false,
+      "subscriptions-goal" : nil,
+      "countdown-enabled" : false,
+      "countdown-ends-at" : nil,
+      "hidden" : false,
+      "image-url": "https://steady.imgix.net/gfx/steady_logo.svg"
+      "inserted-at" : "2018-08-16T09:15:29.803825Z",
+      "updated-at" : "2018-08-16T09:15:29.803830Z"
+    }
+  }]
+}
+
+// when the user has no current subscription
+{
+  "data": null
+}
+```
+
+`GET https://steadyhq.com/api/v1/subscriptions/me`
+
+Returns infos about the current subscription for the user associated with the *access token*.
+If the user has no subscription, or it has expired, the data attribute of the response is *null*.
+
+### Needed scope of access_token:
+read
+
+### Subscription attributes
+Attribute | Description
+--------- | -----------
+state | guest / in_trial / active / not_renewing
+period | monthly / annual — the period of the contract of the user
+currency | EUR / USD
+monthly-amount-in-cents | monthly amount of the associated plan (users don't pay in states in_trial and guest)
+inserted-at | datetime of the creation of the subscription
+updated-at | datetime when the subscription was updated the last time on our system
+cancelled-at | datetime of the cancellation / null
+trial-ends-at | datetime when the subscription's trial period will end or has ended / null
+active-from | datetime when the subscription was paid for the first time/ null
+expires-at | datetime when the subscription will expire / null
+rss-feed-url | if you use our podcast features, this is the rss-feed url with authentication for the subscriber
+
+### Plan attributes
+Attribute | Description
+--------- | -----------
+state | published / archived
+name | name of the plan
+monthly-amount-in-cents | the amount a user with a monthly contract has to pay per month
+annual-amount-in-cents | the amount a user with an annual contract has to pay per year
+currency | EUR / USD
+benefits | the benefits of this plan / null
+ask-for-shipping-address | boolean if we ask the user for her shipping address after she subscribed
+goal-enabled | boolean if this plan has a goal of a certain amount of subscriptions
+subscriptions-goal | integer how many subscription should be reached if goal is enabled / null
+countdown-enabled | boolean if a countdown for this plan is enabled
+countdown-ends-at | datetime when the countdown will end if it is enabled / null
+hidden | boolean if the plan is hidden
+image-url | plan image url / null
+inserted-at | datetime of the creation of the plan
+updated-at | datetime when the plan was updated the last time on our system

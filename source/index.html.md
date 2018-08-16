@@ -12,8 +12,9 @@ toc_copyright:
 includes:
   - introduction
   - oauth
-  - authorization
-  - users
+  - rest
+  - publication
+  - plans
   - subscriptions
 
 search: true
