@@ -22,7 +22,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "paying-members-count": 7,
       "trial-members-count": 2,
       "guest-members-count": 1,
-      "monthly-amount-in_cents": 14223,
+      "monthly-amount-in-cents": 14223,
       "editor-name": "Foo Bear",
       "trial-period-activated": true,
       "public": true,
@@ -49,7 +49,7 @@ members-count | the members count of the publication
 paying-members-count | the count of paying members of the publication
 trial-members-count | the count of trial members of the publication
 guest-members-count | the count of guest members of the publication
-monthly-amount-in_cents | the sum of the membership fees, the publication earns in a month
+monthly-amount-in-cents | the sum of the membership fees, the publication earns in a month
 editor-name | the name of the publisher as shown on the Steady Page
 trial-period-activated | boolean if trial memberships are enabled for the publication
 public | boolean if the publication has been made public
