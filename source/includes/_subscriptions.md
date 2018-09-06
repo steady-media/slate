@@ -103,33 +103,32 @@ Content-Type: application/vnd.api+json; charset=utf-8
 ```javascript
 {
   "data": {
-      "type": "subscription",
-      "id": "8ef509c7-b8fe-4a56-a366-fadf030bfc64",
-      "attributes": {
-        "state": "not_renewing",
-        "period": "annual"
-        "currency": "EUR",
-        "monthly-amount-in-cents": 1000,
-        "inserted-at": "2017-04-08T10:55:31.000000Z",
-        "updated-at": "2017-05-01T10:55:31.000000Z",
-        "cancelled-at": "2017-05-01T22:00:14.000000Z",
-        "trial-ends-at": "2017-05-08T10:55:31.000000Z",
-        "active-from": null,
-        "expires-at": "2017-05-18T10:55:31.000000Z",
-        "rss-feed-url": "https://steadyhq.com/rss/your-publication?auth=6d58b391-156a-4e88-93ff-3fe773f4394d"
+    "type": "subscription",
+    "id": "8ef509c7-b8fe-4a56-a366-fadf030bfc64",
+    "attributes": {
+      "state": "not_renewing",
+      "period": "annual"
+      "currency": "EUR",
+      "monthly-amount-in-cents": 1000,
+      "inserted-at": "2017-04-08T10:55:31.000000Z",
+      "updated-at": "2017-05-01T10:55:31.000000Z",
+      "cancelled-at": "2017-05-01T22:00:14.000000Z",
+      "trial-ends-at": "2017-05-08T10:55:31.000000Z",
+      "active-from": null,
+      "expires-at": "2017-05-18T10:55:31.000000Z",
+      "rss-feed-url": "https://steadyhq.com/rss/your-publication?auth=6d58b391-156a-4e88-93ff-3fe773f4394d"
+    },
+    "relationships": {
+      "plan": {
+        "data": {
+          "type": "plan",
+          "id": "00083e16-668b-4bc4-8669-927daa408a1c"
+        }
       },
-      "relationships": {
-        "plan": {
-          "data": {
-            "type": "plan",
-            "id": "00083e16-668b-4bc4-8669-927daa408a1c"
-          }
-        },
-        "subscriber": {
-          "data": {
-            "type": "user",
-            "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
-          }
+      "subscriber": {
+        "data": {
+          "type": "user",
+          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
         }
       }
     },
@@ -153,14 +152,17 @@ Content-Type: application/vnd.api+json; charset=utf-8
         "inserted-at" : "2018-08-16T09:15:29.803825Z",
         "updated-at" : "2018-08-16T09:15:29.803830Z"
       }
-    }],
-    ...
+    }]
+  }
 }
 ```
 
 `POST https://steadyhq.com/api/v1/subscriptions/:subscription_id/cancel`
 
 Cancels a subscription respecting the end of the current term.
+
+In case the subscription can't be canceled (e.g. because it already is cancelled),
+a response with status code 422 will be returned.
 
 ### Attributes
 Attribute | Description
