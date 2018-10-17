@@ -70,7 +70,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
 }
 ```
 
-`GET https://steadyhq.com/api/v1/plans`
+`GET https://steadyhq.com/api/v1/subscriptions`
 
 Returns an array with all current subscriptions of the publication.
 
