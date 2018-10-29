@@ -3,7 +3,7 @@
 ```http
 GET /api/v1/plans HTTP/1.1
 Accept: application/vnd.api+json
-Authorization: X-Api-Key YOUR_API_KEY
+X-Api-Key: YOUR_API_KEY
 Host: steadyhq.com
 ```
 ```http

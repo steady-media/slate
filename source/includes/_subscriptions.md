@@ -3,7 +3,7 @@
 ```http
 GET /api/v1/subscriptions HTTP/1.1
 Accept: application/vnd.api+json
-Authorization: X-Api-Key YOUR_API_KEY
+X-Api-Key: YOUR_API_KEY
 Host: steadyhq.com
 ```
 ```http
@@ -93,7 +93,7 @@ rss-feed-url | if you use our podcast features, this is the rss-feed url with au
 ```http
 POST /api/v1/subscriptions/8ef509c7-b8fe-4a56-a366-fadf030bfc64/cancel HTTP/1.1
 Accept: application/vnd.api+json
-Authorization: X-Api-Key YOUR_API_KEY
+X-Api-Key: YOUR_API_KEY
 Host: steadyhq.com
 ```
 ```http
