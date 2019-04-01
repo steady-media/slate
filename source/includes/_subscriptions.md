@@ -39,7 +39,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
         "subscriber": {
           "data": {
             "type": "user",
-            "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
+            "id": "ffc41bfd-871b-4376-8e02-8729c752b2af",
+            "email": "alice@example.com",
+            "first-name": "Alice",
+            "last-name": "Munro",
+            "avatar-url": "https://steady.imgix.net/gfx/some-path/avatar.svg?auto=format&cop=faces&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
           }
         }
       }
@@ -128,7 +132,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "subscriber": {
         "data": {
           "type": "user",
-          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
+          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af",
+          "email": "alice@example.com",
+          "first-name": "Alice",
+          "last-name": "Munro",
+          "avatar-url": "https://steady.imgix.net/gfx/some-path/avatar.svg?auto=format&cop=faces&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
         }
       }
     },
