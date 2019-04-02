@@ -294,7 +294,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
           "email": "alice@example.com",
           "first-name": "Alice",
           "last-name": "Munro",
-          "avatar-url": "https://steady.imgix.net/gfx/some-path/avatar.svg?auto=format&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
+          "avatar-url": "https://steady.imgix.net/gfx/defaults/user/avatar.png?auto=format&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
         }
       }
     }
