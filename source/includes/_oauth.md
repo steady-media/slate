@@ -290,36 +290,44 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "subscriber": {
         "data": {
           "type": "user",
-          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af",
-          "email": "alice@example.com",
-          "first-name": "Alice",
-          "last-name": "Munro",
-          "avatar-url": "https://steady.imgix.net/gfx/defaults/user/avatar.png?auto=format&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
+          "id": "ffc41bfd-871b-4376-8e02-8729c752b2af"
         }
       }
     }
   },
-  "included": [{
-    "type": "plan",
-    "id": "b9d7574f-5246-4c94-ade5-1d4e9b169afc",
-    "attributes": {
-      "state" : "published",
-      "name": "Gold plan",
-      "monthly-amount-in-cents" : 2000,
-      "annual-amount-in-cents" : 12000,
-      "currency" : "EUR",
-      "benefits" : "foo bar baz",
-      "ask-for-shiping-address" : false,
-      "goal-enabled" : false,
-      "subscriptions-goal" : nil,
-      "countdown-enabled" : false,
-      "countdown-ends-at" : nil,
-      "hidden" : false,
-      "image-url": "https://steady.imgix.net/gfx/steady_logo.svg"
-      "inserted-at" : "2018-08-16T09:15:29.803825Z",
-      "updated-at" : "2018-08-16T09:15:29.803830Z"
+  "included": [
+    {
+      "type": "plan",
+      "id": "b9d7574f-5246-4c94-ade5-1d4e9b169afc",
+      "attributes": {
+        "state" : "published",
+        "name": "Gold plan",
+        "monthly-amount-in-cents" : 2000,
+        "annual-amount-in-cents" : 12000,
+        "currency" : "EUR",
+        "benefits" : "foo bar baz",
+        "ask-for-shiping-address" : false,
+        "goal-enabled" : false,
+        "subscriptions-goal" : nil,
+        "countdown-enabled" : false,
+        "countdown-ends-at" : nil,
+        "hidden" : false,
+        "image-url": "https://steady.imgix.net/gfx/steady_logo.svg"
+        "inserted-at" : "2018-08-16T09:15:29.803825Z",
+        "updated-at" : "2018-08-16T09:15:29.803830Z"
+      }
+    },
+    {
+      "type": "user",
+      "id": "ffc41bfd-871b-4376-8e02-8729c752b2af",
+      "attributes": {
+        "email": "alice@example.com",
+        "first-name": "Alice",
+        "last-name": "Munro",
+        "avatar-url": "https://steady.imgix.net/gfx/defaults/user/avatar.png?auto=format&crop=faces&fit=crop&fm=png&h=200&mask=ellipse&w=200"
+      }
     }
-  }]
+  ]
 }
 
 // when the user has no current subscription
