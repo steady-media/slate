@@ -348,38 +348,7 @@ If the user has no subscription, or it has expired, the data attribute of the re
 read
 
 ### Subscription attributes
-Attribute | Description
---------- | -----------
-state | guest / in_trial / active / not_renewing
-period | monthly / annual — the period of the contract of the user
-currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
-monthly-amount | monthly amount of the associated plan (users don’t pay in states in_trial and guest)
-monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
-inserted-at | datetime of the creation of the subscription
-updated-at | datetime when the subscription was updated the last time on our system
-cancelled-at | datetime of the cancellation / null
-trial-ends-at | datetime when the subscription's trial period will end or has ended / null
-active-from | datetime when the subscription was paid for the first time/ null
-expires-at | datetime when the subscription will expire / null
-rss-feed-url | if you use our podcast features, this is the rss-feed url with authentication for the subscriber
+<%= Helper.render_shared("_subscription_attributes.md") %>
 
 ### Plan attributes
-Attribute | Description
---------- | -----------
-state | published / archived
-name | name of the plan
-currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
-monthly-amount | the amount a user with a monthly contract has to pay per month
-monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
-annual-amount | the amount a user with an annual contract has to pay per year
-annual-amount-in-cents | **DEPRECATED** Use `annual-amount` instead.
-benefits | the benefits of this plan / null
-ask-for-shipping-address | boolean if we ask the user for her shipping address after she subscribed
-goal-enabled | boolean if this plan has a goal of a certain amount of subscriptions
-subscriptions-goal | integer how many subscription should be reached if goal is enabled / null
-countdown-enabled | boolean if a countdown for this plan is enabled
-countdown-ends-at | datetime when the countdown will end if it is enabled / null
-hidden | boolean if the plan is hidden
-image-url | plan image url / null
-inserted-at | datetime of the creation of the plan
-updated-at | datetime when the plan was updated the last time on our system
+<%= Helper.render_shared("_plan_attributes.md") %>

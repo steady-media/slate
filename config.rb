@@ -1,3 +1,5 @@
+require_relative 'lib/custom_markdown_renderer'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -6,8 +8,8 @@ set :markdown,
     disable_indented_code_blocks: true,
     prettify: true,
     tables: true,
-    with_toc_data: true,
-    no_intra_emphasis: true
+    no_intra_emphasis: true,
+    renderer: CustomMarkdownRenderer.new(with_toc_data: true)
 
 # Assets
 set :css_dir, 'stylesheets'
@@ -19,6 +21,7 @@ set :fonts_dir, 'fonts'
 activate :syntax
 ready do
   require './lib/multilang.rb'
+  require './lib/helper.rb'
 end
 
 activate :sprockets
