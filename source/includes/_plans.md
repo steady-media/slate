@@ -19,9 +19,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "attributes": {
         "state" : "published",
         "name": "Gold plan",
-        "monthly-amount-in-cents" : 2000,
-        "annual-amount-in-cents" : 12000,
         "currency" : "EUR",
+        "monthly-amount" : 2000,
+        "monthly-amount-in-cents" : 2000,
+        "annual-amount" : 12000,
+        "annual-amount-in-cents" : 12000,
         "benefits" : "foo bar baz",
         "ask-for-shiping-address" : false,
         "goal-enabled" : false,
@@ -46,11 +48,13 @@ Returns an array with all plans of the publication.
 ### Attributes
 Attribute | Description
 --------- | -----------
-state | draft / published / archived
+state | published / archived
 name | name of the plan
-monthly-amount-in-cents | the amount a user with a monthly contract has to pay per month
-annual-amount-in-cents | the amount a user with an annual contract has to pay per year
-currency | EUR / USD
+currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+monthly-amount | the amount a user with a monthly contract has to pay per month
+monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
+annual-amount | the amount a user with an annual contract has to pay per year
+annual-amount-in-cents | **DEPRECATED** Use `annual-amount` instead.
 benefits | the benefits of this plan / null
 ask-for-shipping-address | boolean if we ask the user for her shipping address after she subscribed
 goal-enabled | boolean if this plan has a goal of a certain amount of subscriptions

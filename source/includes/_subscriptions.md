@@ -20,6 +20,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
         "state": "not_renewing",
         "period": "annual"
         "currency": "EUR",
+        "monthly-amount": 1000,
         "monthly-amount-in-cents": 1000,
         "inserted-at": "2017-04-08T10:55:31.000000Z",
         "updated-at": "2017-05-01T10:55:31.000000Z",
@@ -53,9 +54,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "attributes": {
         "state" : "published",
         "name": "Gold plan",
-        "monthly-amount-in-cents" : 2000,
-        "annual-amount-in-cents" : 12000,
         "currency" : "EUR",
+        "monthly-amount" : 2000,
+        "monthly-amount-in-cents" : 2000,
+        "annual-amount" : 12000,
+        "annual-amount-in-cents" : 12000,
         "benefits" : "foo bar baz",
         "ask-for-shiping-address" : false,
         "goal-enabled" : false,
@@ -92,8 +95,9 @@ Attribute | Description
 --------- | -----------
 state | guest / in_trial / active / not_renewing
 period | monthly / annual — the period of the contract of the user
-currency | EUR / USD
-monthly-amount-in-cents | monthly amount of the associated plan (users don't pay in states in_trial and guest)
+currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+monthly-amount | monthly amount of the associated plan (users don’t pay in states in_trial and guest)
+monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
 inserted-at | datetime of the creation of the subscription
 updated-at | datetime when the subscription was updated the last time on our system
 cancelled-at | datetime of the cancellation / null
@@ -122,6 +126,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "state": "not_renewing",
       "period": "annual"
       "currency": "EUR",
+      "monthly-amount": 1000,
       "monthly-amount-in-cents": 1000,
       "inserted-at": "2017-04-08T10:55:31.000000Z",
       "updated-at": "2017-05-01T10:55:31.000000Z",
@@ -152,9 +157,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
         "attributes": {
           "state" : "published",
           "name": "Gold plan",
-          "monthly-amount-in-cents" : 2000,
-          "annual-amount-in-cents" : 12000,
           "currency" : "EUR",
+          "monthly-amount" : 2000,
+          "monthly-amount-in-cents" : 2000,
+          "annual-amount" : 12000,
+          "annual-amount-in-cents" : 12000,
           "benefits" : "foo bar baz",
           "ask-for-shiping-address" : false,
           "goal-enabled" : false,
@@ -194,8 +201,9 @@ Attribute | Description
 --------- | -----------
 state | not_renewing
 period | monthly / annual — the period of the contract of the user
-currency | EUR / USD
-monthly-amount-in-cents | monthly amount of the associated plan (users don't pay in states in_trial and guest)
+currency | currency for all `*-amount-base-unit`-fields. Represented with 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+monthly-amount | monthly amount of the associated plan (users don't pay in states in_trial and guest)
+monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
 inserted-at | datetime of the creation of the subscription
 updated-at | datetime when the subscription was updated the last time on our system
 cancelled-at | datetime of the cancellation / null
