@@ -2,7 +2,7 @@ Attribute | Description
 --------- | -----------
 state | published / archived
 name | name of the plan
-currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+currency | EUR / USD / SEK
 monthly-amount | the amount a user with a monthly contract has to pay per month
 monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
 annual-amount | the amount a user with an annual contract has to pay per year

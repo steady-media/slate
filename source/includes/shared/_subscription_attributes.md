@@ -2,7 +2,7 @@ Attribute | Description
 --------- | -----------
 state | guest / in_trial / active / not_renewing
 period | monthly / annual — the period of the contract of the user
-currency | currency for `*-amount`-field(s). Represented by 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+currency | EUR / USD / SEK
 monthly-amount | monthly amount of the associated plan (users don’t pay in states in_trial and guest)
 monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
 inserted-at | datetime of the creation of the subscription
