@@ -271,6 +271,7 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "state": "not_renewing",
       "period": "annual"
       "currency": "EUR",
+      "monthly-amount": 1000,
       "monthly-amount-in-cents": 1000,
       "inserted-at": "2017-04-08T10:55:31.000000Z",
       "updated-at": "2017-05-01T10:55:31.000000Z",
@@ -302,9 +303,11 @@ Content-Type: application/vnd.api+json; charset=utf-8
       "attributes": {
         "state" : "published",
         "name": "Gold plan",
-        "monthly-amount-in-cents" : 2000,
-        "annual-amount-in-cents" : 12000,
         "currency" : "EUR",
+        "monthly-amount" : 2000,
+        "monthly-amount-in-cents" : 2000,
+        "annual-amount" : 12000,
+        "annual-amount-in-cents" : 12000,
         "benefits" : "foo bar baz",
         "ask-for-shiping-address" : false,
         "goal-enabled" : false,
@@ -345,35 +348,7 @@ If the user has no subscription, or it has expired, the data attribute of the re
 read
 
 ### Subscription attributes
-Attribute | Description
---------- | -----------
-state | guest / in_trial / active / not_renewing
-period | monthly / annual — the period of the contract of the user
-currency | EUR / USD
-monthly-amount-in-cents | monthly amount of the associated plan (users don't pay in states in_trial and guest)
-inserted-at | datetime of the creation of the subscription
-updated-at | datetime when the subscription was updated the last time on our system
-cancelled-at | datetime of the cancellation / null
-trial-ends-at | datetime when the subscription's trial period will end or has ended / null
-active-from | datetime when the subscription was paid for the first time/ null
-expires-at | datetime when the subscription will expire / null
-rss-feed-url | if you use our podcast features, this is the rss-feed url with authentication for the subscriber
+<%= Helper.render_shared("_subscription_attributes.md") %>
 
 ### Plan attributes
-Attribute | Description
---------- | -----------
-state | published / archived
-name | name of the plan
-monthly-amount-in-cents | the amount a user with a monthly contract has to pay per month
-annual-amount-in-cents | the amount a user with an annual contract has to pay per year
-currency | EUR / USD
-benefits | the benefits of this plan / null
-ask-for-shipping-address | boolean if we ask the user for her shipping address after she subscribed
-goal-enabled | boolean if this plan has a goal of a certain amount of subscriptions
-subscriptions-goal | integer how many subscription should be reached if goal is enabled / null
-countdown-enabled | boolean if a countdown for this plan is enabled
-countdown-ends-at | datetime when the countdown will end if it is enabled / null
-hidden | boolean if the plan is hidden
-image-url | plan image url / null
-inserted-at | datetime of the creation of the plan
-updated-at | datetime when the plan was updated the last time on our system
+<%= Helper.render_shared("_plan_attributes.md") %>
