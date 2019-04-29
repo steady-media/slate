@@ -188,7 +188,7 @@ Attribute | Description
 --------- | -----------
 state | not_renewing
 period | monthly / annual — the period of the contract of the user
-currency | currency for all `*-amount-base-unit`-fields. Represented with 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
+currency | currency for all `*-amount`-fields. Represented with 3 uppercase letters, e.g: `EUR`, `USD`, `SEK`,…
 monthly-amount | monthly amount of the associated plan (users don't pay in states in_trial and guest)
 monthly-amount-in-cents | **DEPRECATED** Use `monthly-amount` instead.
 inserted-at | datetime of the creation of the subscription
